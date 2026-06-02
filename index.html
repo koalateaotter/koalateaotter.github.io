@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DragonTrove — Budget Like A Dragon</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #1741AB;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 4px;
+        }
+
+        header p {
+            font-size: 1em;
+            opacity: 0.85;
+        }
+
+        /* APP STORE BUTTON */
+        .download-section {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            background-color: #1741AB;
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .app-store-btn:hover {
+            background-color: #1565C0;
+        }
+
+        .app-store-btn span {
+            display: block;
+            font-size: 0.75em;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
+        }
+
+        /* DESCRIPTION */
+        .description {
+	    background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        .description p {
+            margin-bottom: 14px;
+        }
+
+        .description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* SCREENSHOTS */
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1741AB;
+            margin: 36px 0 16px;
+            text-align: center;
+        }
+
+        .screenshots {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .screenshot-placeholder {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 400px;
+            background: #e8f0fe;
+            border-radius: 20px;
+            border: 2px dashed #1741AB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1741AB;
+            font-size: 0.85em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        }
+
+        .feature-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            font-size: 1em;
+            font-weight: 700;
+            color: #1741AB;
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 0.85em;
+            padding: 30px 20px;
+            border-top: 1px solid #eee;
+        }
+
+        footer a {
+            color: #1741AB;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .links {
+            margin-bottom: 8px;
+        }
+
+        footer .links a {
+            margin: 0 12px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .description {
+                padding: 24px 20px;
+            }
+
+            .screenshot-placeholder {
+                width: 160px;
+                height: 320px;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <img src="dragontrove_app_icon_blue_small.png" alt="DragonTrove App Icon">
+    <h1>DragonTrove</h1>
+    <p style="color:White;">Budget Like A Dragon</p>
+</header>
+
+
+
+<!-- MAIN -->
+<main>
+
+    <!-- DESCRIPTION -->
+    <div class="description">
+	<p>Your treasure deserves a guardian.</p>
+        <p>DragonTrove is a budgeting app to protect your hoard of envelopes. Because why can't budgeting have an element of fun? Create gold piles for categories you need to track — groceries, gas, dining out. Intentionally track your spending as your dragon breathes fire, burning through your trove.</p>
+        <p>This app was built for my family to track our trove and reduce the resistance of other budgeting apps. I use this app with my family every day. You should too!</p>
+        <p>Quick access, offline first, and privacy first. All your data stays on your phone or with the people you share a budget with. Share budgets with others through iCloud to budget together. Transactions can be added with balances updated in real time.</p>
+    </div>
+
+    <!-- SCREENSHOTS -->
+    <div class="section-title">Screenshots</div>
+    <div class="screenshots">
+        <div class="screenshot-placeholder">Screenshot 1<br><br>Overview Screen - Dragon Theme</div>
+        <div class="screenshot-placeholder">Screenshot 2<br><br>Overview Screen - Classic Theme</div>
+        <div class="screenshot-placeholder">Screenshot 3<br><br>Add Transaction</div>
+        <div class="screenshot-placeholder">Screenshot 4<br><br>Envelope Detail</div>
+        <div class="screenshot-placeholder">Screenshot 5<br><br>Trends</div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="section-title">Features</div>
+    <div class="features">
+        <div class="feature-card">
+            <h3>Envelope Budgeting</h3>
+            <p>Divide your income into gold piles. Track every transaction against your budget in real time.</p>
+        </div>
+        <div class="feature-card">
+            <h3>iCloud Sync</h3>
+            <p>Syncs privately across all your Apple devices. Share budgets with family or a partner in real time.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Offline First</h3>
+            <p>Works completely offline. No account required, no subscription, no login.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Privacy First</h3>
+            <p>All your data stays on your device. We collect nothing. Your financial data belongs to you.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Voice Entry</h3>
+            <p>Add transactions by voice. Just say "$75 at Costco for groceries" and DragonTrove fills in the details.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Spending Trends</h3>
+            <p>Track spending over months. See where your gold goes with beautiful charts and fund goal tracking.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Themes</h3>
+            <p>Choose Dragon Hoard or Classic theme. Pick your dragon's color. Make it yours.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Your Data</h3>
+            <p>Import and export your data via CSV anytime. No data lock-in, ever.</p>
+        </div>
+    </div>
+
+</main>
+
+<!-- DOWNLOAD -->
+<div class="download-section">
+    <a href="#" class="app-store-btn">
+        <span>Download on the</span>
+        App Store
+    </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:koalateaotter@gmail.com">Contact</a>
+    </div>
+    <p>© 2026 DragonTrove. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
