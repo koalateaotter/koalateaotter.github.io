@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoalaTeaOtter LLC — Privacy Policy</title>
+
+  <style>
+
+    /* ============================================================
+       TOKENS — keep in sync with index.html
+    ============================================================ */
+    :root {
+      --teal:       #1A8FB0;
+      --teal-dark:  #116180;
+      --teal-pale:  #E2F4FA;
+      --gold:       #D4880A;
+      --gold-pale:  #FFF4E0;
+      --ink:        #1A1730;
+      --body:       #3D3856;
+      --muted:      #7A7290;
+      --rule:       #E2DDD8;
+      --bg:         #FAFAF7;
+      --white:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+
+    /* ============================================================
+       NAV — identical to index.html
+    ============================================================ */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: color 0.15s;
+    }
+
+    nav ul a:hover { color: var(--teal); }
+
+
+    /* ============================================================
+       PAGE HEADER
+    ============================================================ */
+    .page-header {
+      background: var(--teal);
+      color: var(--white);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--white);
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+
+    /* ============================================================
+       MAIN CONTENT
+    ============================================================ */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    .updated {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    /* each policy section is a white card */
+    .policy-section {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    .policy-section h2 {
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--teal-pale);
+    }
+
+    .policy-section p {
+      color: #444;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    .policy-section ul {
+      padding-left: 1.25rem;
+      color: #444;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-section ul li { margin-bottom: 0.4rem; }
+
+
+    /* ============================================================
+       FOOTER — identical to index.html
+    ============================================================ */
+    footer {
+      background: var(--teal-dark);
+      color: rgba(255,255,255,0.5);
+      padding: 2rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: Georgia, serif;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+
+    .footer-copy {
+      width: 100%;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      nav ul { gap: 1.25rem; }
+      main { padding: 1.75rem 1rem 3.5rem; }
+      .policy-section { padding: 1.25rem 1.25rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">KoalaTeaOtter</a>
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#apps">Apps</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Privacy Policy</h1>
+    <p>KoalaTeaOtter LLC — this website</p>
+  </div>
+
+
+  <!-- CONTENT -->
+  <main>
+    <p class="updated">Last updated: June 2026</p>
+
+    <div class="policy-section">
+      <h2>Overview</h2>
+      <p>This privacy policy covers the KoalaTeaOtter LLC website (this page and its siblings). It does not cover individual apps — each app has its own privacy policy linked from its product page.</p>
+      <p>The short version: this website does not track you, does not run ads, and does not collect any information unless you voluntarily reach out through the contact form.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Information We Collect</h2>
+      <p>This website does not collect personal information on its own. The only way any information is submitted is if you choose to use the contact form. If you do, that form is powered by Google Forms and may collect:</p>
+      <ul>
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>The message you write</li>
+      </ul>
+      <p>Filling out the form is voluntary.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>How We Use Contact Information</h2>
+      <p>If you submit the contact form, we use your information only to respond to your message. We do not add you to any mailing list, share your information with anyone, or use it for any other purpose.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>What We Don't Collect</h2>
+      <p>This website does not use:</p>
+      <ul>
+        <li>Analytics or visitor tracking of any kind</li>
+        <li>Advertising networks or tracking pixels</li>
+        <li>Cookies beyond what your browser sets by default</li>
+        <li>Any form of fingerprinting or behavioral tracking</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>Google Forms</h2>
+      <p>The contact form on this site is hosted by Google Forms. When you submit a message, it is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. We receive the form submission in our Google account and use it only to reply to you.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Our Apps</h2>
+      <p>Each app published by KoalaTeaOtter LLC has its own privacy policy. For DragonTrove, please see the <a href="https://dragontrove.app/privacy.html" target="_blank" rel="noopener">DragonTrove Privacy Policy</a>.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Changes to This Policy</h2>
+      <p>If this policy changes, we'll update the date at the top of this page. Changes will only ever reflect what this website actually does — we're not planning to add tracking or ads.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Contact</h2>
+      <p>Questions about this policy? <a href="contact.html">Send us a message</a> or email <a href="mailto:hello@koalateaotter.com">hello@koalateaotter.com</a>.</p>
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">KoalaTeaOtter LLC</a>
+      <ul class="footer-links">
+        <li><a href="index.html#apps">Apps</a></li>
+        <li><a href="https://dragontrove.app" target="_blank" rel="noopener">DragonTrove</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 KoalaTeaOtter LLC Oregon</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>
