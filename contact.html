@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KoalaTeaOtter — Contact</title>
+  <!-- reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <style>
+
+    /* ============================================================
+       TOKENS — keep in sync with index.html
+    ============================================================ */
+    :root {
+      --teal:       #1A8FB0;
+      --teal-dark:  #116180;
+      --teal-pale:  #E2F4FA;
+      --gold:       #D4880A;
+      --gold-pale:  #FFF4E0;
+      --ink:        #1A1730;
+      --body:       #3D3856;
+      --muted:      #7A7290;
+      --rule:       #E2DDD8;
+      --bg:         #FAFAF7;
+      --white:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: color 0.15s;
+    }
+
+    nav ul a:hover { color: var(--teal); }
+
+
+    /* ============================================================
+       PAGE HEADER
+    ============================================================ */
+    .page-header {
+      background: var(--teal);
+      color: var(--white);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--white);
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+
+    /* ============================================================
+       MAIN
+    ============================================================ */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+
+    /* ============================================================
+       DESCRIPTION CARD
+    ============================================================ */
+    .description {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .description p { margin-bottom: 0.75rem; }
+    .description p:last-child { margin-bottom: 0; }
+
+    .description ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .description ul li { margin-bottom: 0.4rem; }
+
+
+    /* ============================================================
+       FORM CARD
+    ============================================================ */
+    .form-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    .form-group { margin-bottom: 1.25rem; }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    label .optional {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1.5px solid var(--rule);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--ink);
+      background: #FAFBFF;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(26, 143, 176, 0.12);
+      background: var(--white);
+    }
+
+    .select-wrapper { position: relative; }
+
+    .select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      right: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--teal);
+      pointer-events: none;
+    }
+
+    select { cursor: pointer; }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    /* reCAPTCHA */
+    .recaptcha-wrapper { margin-bottom: 1.25rem; }
+    .recaptcha-wrapper label { margin-bottom: 0.5rem; }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.25rem;
+    }
+
+    .submit-btn:hover { background: var(--teal-dark); }
+
+    /* Success state */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .success-message .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .success-message h2 {
+      font-size: 1.3rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .success-message p { color: var(--muted); font-size: 0.95rem; }
+
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 2rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: Georgia, serif;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+
+    .footer-copy {
+      width: 100%;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      nav ul { gap: 1.25rem; }
+      main { padding: 1.75rem 1rem 3.5rem; }
+      .form-card, .description { padding: 1.25rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">KoalaTeaOtter</a>
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#apps">Apps</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Contact</h1>
+    <p>KoalaTeaOtter LLC — we'd love to hear from you</p>
+  </div>
+
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- DESCRIPTION -->
+    <div class="description">
+      <p>Whether you've spotted a bug in one of our apps, have an idea for a new feature, or just want to say hello - this is the place.</p>
+      <p>A few tips before you submit:</p>
+      <ul>
+        <li><strong>Bug report?</strong> Include what you were doing when it happened and what you expected vs. what actually occurred.</li>
+        <li><strong>Feature request?</strong> Describe the problem you're trying to solve.</li>
+        <li><strong>General feedback?</strong> Thank you!</li>
+      </ul>
+      <p>There's a real person on the other end. We'll get back to you as soon as we can.</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card">
+      <div id="formContainer">
+
+        <div class="form-group">
+          <label for="type">Type</label>
+          <div class="select-wrapper">
+            <select id="type" required>
+              <option value="" disabled selected>Select a type...</option>
+              <option value="Feedback">Feedback</option>
+              <option value="Bug Report">Bug Report</option>
+              <option value="Feature Request">Feature Request</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us what's on your mind..." required></textarea>
+        </div>
+
+        <div class="recaptcha-wrapper">
+          <label>Verification</label>
+          <div class="g-recaptcha" data-sitekey="6LfwVzAtAAAAAKa_1FinT-EjVvksJXm6qXb-iW6v"></div>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">Send Message</button>
+
+      </div>
+
+      <div class="success-message" id="successMessage">
+        <div class="icon">🐨🫖🦦</div>
+        <h2>Message received!</h2>
+        <p>Thanks for reaching out. We'll get back to you as soon as we can.</p>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">KoalaTeaOtter LLC</a>
+      <ul class="footer-links">
+        <li><a href="index.html#apps">Apps</a></li>
+        <li><a href="https://dragontrove.app" target="_blank" rel="noopener">DragonTrove</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 KoalaTeaOtter LLC Oregon</p>
+    </div>
+  </footer>
+
+
+  <script>
+    function submitForm() {
+      const type    = document.getElementById('type').value;
+      const name    = document.getElementById('name').value;
+      const email   = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (!type) {
+        alert('Please select a type.');
+        return;
+      }
+      if (!message.trim()) {
+        alert('Please enter a message.');
+        return;
+      }
+
+      // Verify reCAPTCHA was completed
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+        alert('Please complete the "I\'m not a robot" check.');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('entry.1397147400', type);
+      formData.append('entry.1552812237', name);
+      formData.append('entry.1735376040', email);
+      formData.append('entry.934524657',  message);
+
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSd7TOPi1WMeH_HpSeQW-Z2ifqsAO4a7TSkat_liFNNxa-O_OQ/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      }).catch(() => {
+        alert('Something went wrong. Please try again.');
+      });
+    }
+  </script>
+
+</body>
+</html>
